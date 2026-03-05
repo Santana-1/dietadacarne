@@ -333,10 +333,10 @@ const Index = () => {
                 <p className="text-muted-foreground line-through text-lg">Total: R$ 1.592</p>
                 <div className="mt-4">
                   <span className="font-display text-2xl text-muted-foreground">12x</span>
-                  <span className="font-display text-7xl md:text-8xl text-primary ml-2">R$30</span>
-                  <span className="font-display text-4xl text-primary">,72</span>
+                  <span className="font-display text-7xl md:text-8xl text-primary ml-2">R$25</span>
+                  <span className="font-display text-4xl text-primary">,55</span>
                 </div>
-                <p className="text-muted-foreground mt-2">ou R$297 à vista (menos de R$1 por dia)</p>
+                <p className="text-muted-foreground mt-2">ou R$247 à vista (menos de R$1 por dia)</p>
               </div>
               <CTAButton />
               <p className="text-xs text-muted-foreground flex items-center justify-center gap-1">
