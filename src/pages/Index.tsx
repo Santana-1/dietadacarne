@@ -263,8 +263,6 @@ const Index = () => {
           </motion.h2>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid md:grid-cols-2 gap-6">
             {[
-              { title: "Comunidade Ativa", from: "R$197", desc: "Pessoas na mesma jornada, prontas para te apoiar." },
-              { title: "Suporte com Nutricionistas", from: "R$450", desc: "Profissionais para tirar todas as suas dúvidas." },
               { title: "Receitas Fit", from: "R$47", desc: "Receitas que eliminam compulsão sem sair da dieta." },
               { title: "Lista de Compras", from: "R$27", desc: "Vá ao mercado sabendo exatamente o que colocar no carrinho." },
             ].map((b) => (
@@ -316,8 +314,6 @@ const Index = () => {
               <div className="space-y-2 text-muted-foreground text-sm">
                 {[
                   ["Acesso à plataforma completa", "R$ 697"],
-                  ["Comunidade exclusiva", "R$ 197"],
-                  ["Suporte com nutricionistas", "R$ 450"],
                   ["Treinos exclusivos", "R$ 147"],
                   ["Receitas fit", "R$ 47"],
                   ["Lista de compras", "R$ 27"],
@@ -330,7 +326,7 @@ const Index = () => {
                 ))}
               </div>
               <div>
-                <p className="text-muted-foreground line-through text-lg">Total: R$ 1.592</p>
+                <p className="text-muted-foreground line-through text-lg">Total: R$ 945</p>
                 <div className="mt-4">
                   <span className="font-display text-2xl text-muted-foreground">12x</span>
                   <span className="font-display text-7xl md:text-8xl text-primary ml-2">R$25</span>
