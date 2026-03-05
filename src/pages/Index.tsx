@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Check, X, ChevronDown, Shield, Users, Dumbbell, BookOpen, ShoppingCart, Apple, Flame, Sun, Zap } from "lucide-react";
+import { Check, X, ChevronDown, Shield, Users, Dumbbell, BookOpen, Sun, Zap, Leaf, Wifi, UtensilsCrossed, Clock, TreePine, Brain, Heart, Battery, Moon, Eye, Scale, Salad, Sparkles } from "lucide-react";
 import heroPhoto from "@/assets/hero-photo.jpg";
 import aboutPhoto from "@/assets/about-photo.jpg";
 import { useState } from "react";
@@ -9,6 +9,10 @@ const CTA_LINK = "#";
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
+
+const stagger = {
+  visible: { transition: { staggerChildren: 0.1 } },
 };
 
 const CTAButton = ({ text = "QUERO GARANTIR MEU ACESSO" }: { text?: string }) => (
@@ -37,6 +41,28 @@ const FAQ = ({ question, answer }: { question: string; answer: string }) => {
   );
 };
 
+const PillarCard = ({ icon: Icon, number, title, items }: { icon: React.ElementType; number: string; title: string; items: string[] }) => (
+  <motion.div variants={fadeUp} className="bg-card border border-border rounded-xl p-6 space-y-4 hover:border-primary/50 transition-colors">
+    <div className="flex items-center gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+        <Icon className="w-6 h-6 text-primary" />
+      </div>
+      <div>
+        <span className="text-sm text-primary font-display tracking-wider">PILAR {number}</span>
+        <h3 className="text-2xl">{title}</h3>
+      </div>
+    </div>
+    <ul className="space-y-2">
+      {items.map((item) => (
+        <li key={item} className="flex items-start gap-2 text-muted-foreground text-sm">
+          <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+          {item}
+        </li>
+      ))}
+    </ul>
+  </motion.div>
+);
+
 const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
@@ -54,26 +80,25 @@ const Index = () => {
         <div className="absolute right-0 top-0 bottom-0 w-[70%] overflow-hidden">
           <img
             src={heroPhoto}
-            alt="Transformação"
+            alt="Estilo de vida carnívoro"
             className="w-full h-full object-cover object-center opacity-90"
           />
         </div>
         <div className="relative z-20 container mx-auto px-4 py-20 max-w-6xl">
           <motion.div initial="hidden" animate="visible" variants={fadeUp} className="max-w-2xl space-y-6">
             <h1 className="text-5xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tight">
-              DESCUBRA COMO{" "}
-              <span className="text-gradient-primary">TRANSFORMAR</span>{" "}
-              SEU CORPO NOS PRÓXIMOS 30 DIAS
+              TRANSFORME SUA ROTINA ATRAVÉS DA{" "}
+              <span className="text-gradient-primary">ALIMENTAÇÃO ANCESTRAL</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-lg">
-              Com hábitos simples e à prova de falhas que vão mudar completamente a sua relação com alimentação e treino.
+              Hábitos naturais que fortalecem corpo e mente. Método baseado em experiência prática, estudos independentes e aplicação real com mentorados.
             </p>
             <div className="pt-4">
               <CTAButton />
             </div>
             <div className="flex flex-wrap gap-4 pt-4">
               {[
-                { icon: Flame, text: "Resultados reais" },
+                { icon: Brain, text: "Experiência prática" },
                 { icon: Shield, text: "Garantia de 7 dias" },
                 { icon: Zap, text: "Acesso imediato" },
               ].map(({ icon: Icon, text }) => (
@@ -87,80 +112,121 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Guarantee Banner */}
+      {/* Sobre o Método */}
       <section className="bg-card border-y border-accent/30 py-12 md:py-16">
         <div className="container mx-auto px-4 max-w-4xl text-center space-y-4">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-            <h2 className="text-4xl md:text-5xl text-accent">
-              RESULTADOS EM 7 DIAS OU SEU DINHEIRO DE VOLTA!
-            </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto mt-4">
-              Se você começar, aplicar exatamente o que ensino e não ver resultados em até 7 dias,
-              basta enviar um e-mail e eu devolvo 100% do seu dinheiro. Simples assim.
+            <h2 className="text-4xl md:text-5xl">SOBRE O <span className="text-primary">MÉTODO</span></h2>
+            <p className="text-muted-foreground text-lg max-w-3xl mx-auto mt-4 leading-relaxed">
+              Compartilho minha experiência prática, estudos aprofundados e aplicação real do estilo de vida carnívoro ao longo dos anos, ajudando pessoas a estruturarem uma rotina mais simples e natural.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Results Timeline */}
+      {/* 5 Pilares */}
       <section className="py-16 md:py-24 bg-background">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-4xl md:text-5xl text-center mb-12">
-            QUER UMA <span className="text-primary">PROVA?</span>
-          </motion.h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { day: "Dia 1-3", items: ["✔ Mais disposição", "✔ Mais clareza mental"] },
-              { day: "Dia 4-5", items: ["✔ A pele começa a melhorar", "✔ O inchaço diminui"] },
-              { day: "Dia 7", items: ["✔ Espere ter perdido pelo menos 3kg", "✔ Roupas mais folgadas"] },
-            ].map((block) => (
-              <motion.div key={block.day} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
-                className="bg-card border border-border rounded-xl p-6 space-y-3">
-                <h3 className="text-2xl text-primary">{block.day}</h3>
-                {block.items.map((item) => (
-                  <p key={item} className="text-foreground text-base">{item}</p>
-                ))}
-              </motion.div>
-            ))}
-          </div>
-          <div className="text-center mt-10">
-            <CTAButton text="QUERO TER ESSES RESULTADOS" />
+        <div className="container mx-auto px-4 max-w-6xl">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-12 space-y-3">
+            <h2 className="text-4xl md:text-5xl">
+              OS 5 PILARES DO <span className="text-primary">MÉTODO</span>
+            </h2>
+            <p className="text-muted-foreground text-lg">A base que diferencia essa abordagem de qualquer dieta comum</p>
+          </motion.div>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <PillarCard icon={UtensilsCrossed} number="1" title="Alimentação Carnívora Estratégica" items={["Simplificação alimentar", "Redução de ultraprocessados", "Ajuste gradual", "Aplicação prática no dia a dia"]} />
+            <PillarCard icon={Clock} number="2" title="Jejum como Ferramenta" items={["Organização metabólica", "Disciplina alimentar", "Estratégia consciente (sem extremismos)"]} />
+            <PillarCard icon={Sun} number="3" title="Exposição Solar e Ritmo Circadiano" items={["Sol diário", "Regulação natural do sono", "Alinhamento hormonal natural"]} />
+            <PillarCard icon={TreePine} number="4" title="Contato com a Natureza" items={["Aterramento", "Redução de estresse", "Estímulo natural ao corpo"]} />
+            <PillarCard icon={Wifi} number="5" title="Redução de Poluição Eletromagnética" items={["Organização do ambiente", "Higiene do sono", "Estratégias simples de aplicação"]} />
+          </motion.div>
+          <div className="text-center mt-12">
+            <CTAButton text="QUERO ACESSAR O MÉTODO" />
           </div>
         </div>
       </section>
 
-      {/* Steps */}
+      {/* Para quem é */}
       <section className="py-16 md:py-24 bg-card">
         <div className="container mx-auto px-4 max-w-5xl">
           <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-4xl md:text-5xl text-center mb-12">
-            COMO VOCÊ VAI TER <span className="text-primary">RESULTADOS?</span>
+            PARA QUEM É <span className="text-primary">ESSE CURSO?</span>
           </motion.h2>
-          <div className="grid md:grid-cols-2 gap-8">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid md:grid-cols-2 gap-6">
             {[
-              { step: "01", title: "Acesse a plataforma", desc: "Aulas curtas e direto ao ponto para saber o que comer, quando comer e como preparar." },
-              { step: "02", title: "Vá ao mercado", desc: "Com a lista de compras pronta, abasteça sua geladeira com comida de verdade." },
-              { step: "03", title: "Comece a dieta", desc: "Tire todas as suas dúvidas com suporte especializado durante toda sua jornada." },
-              { step: "04", title: "Acelere os resultados", desc: "Inclua jejum e rotinas específicas para potencializar ainda mais seu emagrecimento." },
-            ].map((s) => (
-              <motion.div key={s.step} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
-                className="flex gap-5 items-start">
-                <div className="flex-shrink-0 w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center">
-                  <span className="font-display text-2xl text-primary">{s.step}</span>
+              { icon: Users, text: "Homens e mulheres acima de 30 anos que querem retomar o controle da saúde" },
+              { icon: X, text: "Pessoas cansadas de dietas complexas e sem resultado" },
+              { icon: Leaf, text: "Quem busca um estilo de vida mais natural e sustentável" },
+              { icon: Battery, text: "Profissionais que querem energia estável ao longo do dia" },
+            ].map(({ icon: Icon, text }) => (
+              <motion.div key={text} variants={fadeUp} className="flex gap-4 items-start bg-background border border-border rounded-xl p-6">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+                  <Icon className="w-6 h-6 text-primary" />
                 </div>
-                <div>
-                  <h3 className="text-2xl mb-1">{s.title}</h3>
-                  <p className="text-muted-foreground">{s.desc}</p>
-                </div>
+                <p className="text-foreground text-lg mt-2">{text}</p>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Benefícios */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-4xl md:text-5xl text-center mb-12">
+            BENEFÍCIOS <span className="text-primary">ESPERADOS</span>
+          </motion.h2>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid md:grid-cols-2 gap-5">
+            {[
+              { icon: Battery, text: "Energia estável ao longo do dia, com menos picos e quedas bruscas" },
+              { icon: UtensilsCrossed, text: "Maior controle sobre a fome e redução de episódios de compulsão" },
+              { icon: Moon, text: "Sono mais profundo e recuperação mais eficiente" },
+              { icon: Brain, text: "Clareza mental e maior foco nas atividades diárias" },
+              { icon: Scale, text: "Melhora gradual da composição corporal, com perda de peso sustentável" },
+              { icon: Salad, text: "Rotina alimentar simples, prática e previsível" },
+              { icon: Sparkles, text: "Sensação de leveza, autonomia e liberdade em relação à comida" },
+            ].map(({ icon: Icon, text }) => (
+              <motion.div key={text} variants={fadeUp} className="flex gap-4 items-start">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/15 flex items-center justify-center">
+                  <Icon className="w-5 h-5 text-primary" />
+                </div>
+                <p className="text-muted-foreground text-base mt-1.5">{text}</p>
+              </motion.div>
+            ))}
+          </motion.div>
           <div className="text-center mt-12">
             <CTAButton />
           </div>
         </div>
       </section>
 
-      {/* Modules */}
+      {/* Diferencial */}
+      <section className="py-16 md:py-24 bg-card">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="space-y-6">
+            <h2 className="text-4xl md:text-5xl text-center">
+              O ESTILO DE VIDA CARNÍVORO VAI{" "}
+              <span className="text-primary">ALÉM DA ALIMENTAÇÃO</span>
+            </h2>
+            <div className="space-y-5 text-muted-foreground text-lg leading-relaxed max-w-3xl mx-auto">
+              <p>
+                Compartilho minha experiência prática, anos de estudo independente e aplicação real no dia a dia. Mostro, de forma simples e estruturada, o caminho que percorri para recuperar autonomia sobre minha saúde, fortalecer minha autoestima e assumir o controle das minhas decisões sem culpa ou dependência de padrões impostos pela indústria moderna.
+              </p>
+              <p>
+                A proposta é resgatar fundamentos que sustentaram nossa evolução: alimentação simples, exposição ao sol, contato com a natureza, disciplina diária e redução de excessos.
+              </p>
+              <p>
+                Trata-se de reconstruir um ambiente saudável — físico e mental — capaz de sustentar energia, clareza e constância no longo prazo.
+              </p>
+              <p className="text-foreground font-semibold text-xl">
+                Não é uma mudança isolada na dieta. É a reorganização da rotina para viver com mais autonomia, consciência e equilíbrio.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Tudo que você recebe */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 max-w-5xl">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-12 space-y-3">
@@ -169,40 +235,40 @@ const Index = () => {
             </h2>
             <p className="text-muted-foreground text-lg">Entre agora e receba de forma instantânea:</p>
           </motion.div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: Apple, title: "Plano Alimentar Completo", desc: "Saiba exatamente o que comprar, como montar refeições e implementar no dia a dia." },
+              { icon: UtensilsCrossed, title: "Plano Alimentar Completo", desc: "Saiba exatamente o que comprar, como montar refeições e implementar no dia a dia." },
               { icon: Sun, title: "Protocolo Solar", desc: "Melhore sono e regule hormônios com exposição solar no horário e tempo ideais." },
               { icon: Zap, title: "Guia de Suplementação", desc: "Pare de gastar com suplemento inútil. Saiba exatamente o que tomar e quando." },
-              { icon: Flame, title: "Protocolo de Jejum", desc: "Domine a ferramenta mais poderosa de desintoxicação e queima de gordura." },
-              { icon: Dumbbell, title: "Treinos Exclusivos", desc: "Treinos para acelerar o emagrecimento, na academia ou em casa." },
-              { icon: BookOpen, title: "E-books e Manuais", desc: "9 livros digitais completos para viver o verdadeiro estilo de transformação." },
+              { icon: Clock, title: "Protocolo de Jejum", desc: "Domine a ferramenta mais poderosa de desintoxicação e organização metabólica." },
+              { icon: Dumbbell, title: "Treinos Exclusivos", desc: "Treinos para acelerar resultados, na academia ou em casa." },
+              { icon: BookOpen, title: "E-books e Manuais", desc: "Livros digitais completos para viver o verdadeiro estilo de transformação." },
             ].map(({ icon: Icon, title, desc }) => (
-              <motion.div key={title} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
+              <motion.div key={title} variants={fadeUp}
                 className="bg-card border border-border rounded-xl p-6 space-y-3 hover:border-primary/50 transition-colors">
                 <Icon className="w-8 h-8 text-primary" />
                 <h3 className="text-2xl">{title}</h3>
                 <p className="text-muted-foreground text-sm">{desc}</p>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Bonuses */}
+      {/* Bônus */}
       <section className="py-16 md:py-24 bg-card">
         <div className="container mx-auto px-4 max-w-5xl">
           <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-4xl md:text-5xl text-center mb-12">
             BÔNUS <span className="text-accent">EXCLUSIVOS</span>
           </motion.h2>
-          <div className="grid md:grid-cols-2 gap-6">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid md:grid-cols-2 gap-6">
             {[
               { title: "Comunidade Ativa", from: "R$197", desc: "Pessoas na mesma jornada, prontas para te apoiar." },
               { title: "Suporte com Nutricionistas", from: "R$450", desc: "Profissionais para tirar todas as suas dúvidas." },
-              { title: "Receitas Fit", from: "R$47", desc: "Receitas de doces que eliminam compulsão sem sair da dieta." },
+              { title: "Receitas Fit", from: "R$47", desc: "Receitas que eliminam compulsão sem sair da dieta." },
               { title: "Lista de Compras", from: "R$27", desc: "Vá ao mercado sabendo exatamente o que colocar no carrinho." },
             ].map((b) => (
-              <motion.div key={b.title} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
+              <motion.div key={b.title} variants={fadeUp}
                 className="bg-background border border-accent/20 rounded-xl p-6 flex flex-col gap-2">
                 <div className="flex items-center justify-between">
                   <h3 className="text-2xl">{b.title}</h3>
@@ -211,47 +277,32 @@ const Index = () => {
                 <p className="text-muted-foreground">{b.desc}</p>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Pain vs Gain */}
+      {/* Minha História */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 max-w-5xl">
-          <div className="grid md:grid-cols-2 gap-8">
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
-              className="bg-destructive/10 border border-destructive/30 rounded-xl p-8 space-y-4">
-              <h3 className="text-3xl text-center">SE VOCÊ NÃO AGUENTA MAIS...</h3>
-              {[
-                "Contar calorias e não ver diferença no espelho",
-                "Se controlar a semana toda e descontar no final de semana",
-                "Viver de peito de frango grelhado sem resultado",
-                "Comer de 3 em 3 horas e continuar com fome",
-              ].map((item) => (
-                <div key={item} className="flex gap-3 items-start">
-                  <X className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
-                  <p className="text-muted-foreground">{item}</p>
-                </div>
-              ))}
+          <div className="grid md:grid-cols-2 gap-10 items-center">
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+              <img src={aboutPhoto} alt="Minha história" className="rounded-2xl w-full max-w-md mx-auto" />
             </motion.div>
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
-              className="bg-primary/10 border border-primary/30 rounded-xl p-8 space-y-4">
-              <h3 className="text-3xl text-center">VOCÊ FINALMENTE IRÁ...</h3>
-              {[
-                "Comer com prazer até a saciedade, sem pesar prato",
-                "Parar com a compulsão por doce nos primeiros dias",
-                "Seguir sua intuição e comer apenas quando sente fome",
-                "Perceber roupas mais folgadas em poucos dias",
-              ].map((item) => (
-                <div key={item} className="flex gap-3 items-start">
-                  <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                  <p className="text-muted-foreground">{item}</p>
-                </div>
-              ))}
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="space-y-5">
+              <h2 className="text-4xl md:text-5xl">MINHA <span className="text-primary">HISTÓRIA</span></h2>
+              <p className="text-muted-foreground leading-relaxed">
+                Em 2018 iniciei uma jornada intensa de estudos e experimentação prática sobre alimentação e saúde metabólica. Fui inspirado pelo médico norte-americano Paul Saladino, e a partir desse primeiro contato mergulhei em pesquisas sobre jejum, alimentos altamente biodisponíveis e nutrição baseada em densidade nutricional.
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                Comecei retirando alimentos processados, reduzindo drasticamente o açúcar e simplificando minha alimentação. Nos primeiros dias já percebi mudanças significativas: melhora no bem-estar geral, fim das crises de refluxo e abandono de medicamentos para alergias.
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                Em 2023 iniciei mentorias individuais e em grupo, acompanhando pessoas por 21 dias no <span className="text-foreground font-semibold">Desafio Carnívoro 21 Dias</span>. Os resultados foram consistentes: melhora na qualidade do sono, aumento de energia e redução de peso sustentável.
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                Em 2025 decidi organizar todo esse conhecimento em um curso acessível, direto e aplicável — pensado para quem quer estruturar um estilo de vida saudável, natural e sustentável no longo prazo.
+              </p>
             </motion.div>
-          </div>
-          <div className="text-center mt-12">
-            <CTAButton />
           </div>
         </div>
       </section>
@@ -296,25 +347,18 @@ const Index = () => {
         </div>
       </section>
 
-      {/* About */}
-      <section className="py-16 md:py-24 bg-background">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <div className="grid md:grid-cols-2 gap-10 items-center">
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-              <img src={aboutPhoto} alt="Sobre" className="rounded-2xl w-full max-w-md mx-auto" />
-            </motion.div>
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="space-y-4">
-              <h2 className="text-4xl md:text-5xl">QUEM <span className="text-primary">SOU EU</span></h2>
-              <p className="text-muted-foreground leading-relaxed">
-                Já estive no fundo do poço. Sem energia, sem resultado, seguindo tudo que o sistema mandava.
-                A virada veio quando comecei a estudar o que ninguém quer que você descubra sobre alimentação e saúde.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                Hoje impacto milhares de pessoas mensalmente. Pessoas que perderam 30, 45 kg seguindo este método.
-                Uma comunidade de verdade, com resultados reais.
-              </p>
-            </motion.div>
-          </div>
+      {/* Garantia */}
+      <section className="py-12 md:py-16 bg-background border-y border-accent/30">
+        <div className="container mx-auto px-4 max-w-4xl text-center space-y-4">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+            <h2 className="text-4xl md:text-5xl text-accent">
+              RESULTADOS EM 7 DIAS OU SEU DINHEIRO DE VOLTA!
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto mt-4">
+              Se você começar, aplicar exatamente o que ensino e não ver resultados em até 7 dias,
+              basta enviar um e-mail e eu devolvo 100% do seu dinheiro. Simples assim.
+            </p>
+          </motion.div>
         </div>
       </section>
 
@@ -332,9 +376,21 @@ const Index = () => {
             <FAQ question="Posso fazer academia junto?" answer="Pode e é recomendado! O método potencializa qualquer treinamento físico." />
             <FAQ question="Funciona para quem já tentou de tudo?" answer="Funciona justamente porque não é uma dieta restritiva. É um retorno à forma como seu corpo foi programado para se alimentar." />
           </div>
-          <div className="text-center mt-12">
-            <CTAButton />
-          </div>
+        </div>
+      </section>
+
+      {/* Chamada Final */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4 max-w-3xl text-center">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="space-y-6">
+            <h2 className="text-4xl md:text-5xl">
+              SIMPLIFIQUE SUA ALIMENTAÇÃO, RECUPERE SUA <span className="text-primary">ENERGIA</span>
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Se você deseja simplificar sua alimentação, recuperar energia e estruturar uma rotina natural e sustentável, este curso foi feito para você.
+            </p>
+            <CTAButton text="QUERO COMEÇAR AGORA" />
+          </motion.div>
         </div>
       </section>
 
