@@ -4,7 +4,7 @@ import heroPhoto from "@/assets/hero-photo.jpg";
 import aboutPhoto from "@/assets/about-photo.jpg";
 import { useState } from "react";
 
-const CTA_LINK = "#";
+const CHECKOUT_LINK = "https://checkout.b4you.com.br/M10oK5U3iM?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAQFJTdleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAaeJMPw8SxsbY_lBs7DdxKR2NuCzPaH2DUr7wUL5a3-H__DvAzDGdeTm08NKGg_aem_SpvwwFSizksLm5UWeHQDew";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -15,8 +15,8 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.1 } },
 };
 
-const CTAButton = ({ text = "QUERO GARANTIR MEU ACESSO" }: { text?: string }) => (
-  <a href={CTA_LINK} className="btn-cta inline-block text-center uppercase tracking-wider font-display">
+const CTAButton = ({ text = "QUERO GARANTIR MEU ACESSO", href = "#pilares" }: { text?: string; href?: string }) => (
+  <a href={href} className="btn-cta inline-block text-center uppercase tracking-wider font-display">
     {text}
   </a>
 );
@@ -125,7 +125,7 @@ const Index = () => {
       </section>
 
       {/* 5 Pilares */}
-      <section className="py-16 md:py-24 bg-background">
+      <section id="pilares" className="py-16 md:py-24 bg-background scroll-mt-4">
         <div className="container mx-auto px-4 max-w-6xl">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-12 space-y-3">
             <h2 className="text-4xl md:text-5xl">
@@ -334,7 +334,7 @@ const Index = () => {
                 </div>
                 <p className="text-muted-foreground mt-2">ou R$247 à vista (menos de R$1 por dia)</p>
               </div>
-              <CTAButton />
+              <CTAButton text="QUERO GARANTIR MEU ACESSO" href={CHECKOUT_LINK} />
               <p className="text-xs text-muted-foreground flex items-center justify-center gap-1">
                 <Shield className="w-4 h-4" /> Pagamento 100% seguro · Garantia de 7 dias
               </p>
