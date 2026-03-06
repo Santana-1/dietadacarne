@@ -120,6 +120,18 @@ const Index = () => {
             <p className="text-muted-foreground text-lg max-w-3xl mx-auto mt-4 leading-relaxed">
               Compartilho minha experiência prática, estudos aprofundados e aplicação real do estilo de vida carnívoro ao longo dos anos, ajudando pessoas a estruturarem uma rotina mais simples e natural.
             </p>
+            <div className="mt-8 max-w-sm mx-auto">
+              <div className="relative w-full rounded-xl overflow-hidden border border-accent/30 shadow-lg" style={{ aspectRatio: '9/16' }}>
+                <iframe
+                  src="https://www.youtube.com/embed/ZbpzMJ4F744"
+                  title="Sobre o Método"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full"
+                />
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
