@@ -15,7 +15,7 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.1 } },
 };
 
-const CTAButton = ({ text = "QUERO GARANTIR MEU ACESSO", href = "#pilares" }: { text?: string; href?: string }) => (
+const CTAButton = ({ text = "QUERO GARANTIR MEU ACESSO", href = "#preco" }: { text?: string; href?: string }) => (
   <a href={href} className="btn-cta inline-block text-center uppercase tracking-wider font-display">
     {text}
   </a>
@@ -306,7 +306,7 @@ const Index = () => {
       </section>
 
       {/* Pricing */}
-      <section className="py-16 md:py-24 bg-card">
+      <section id="preco" className="py-16 md:py-24 bg-card scroll-mt-4">
         <div className="container mx-auto px-4 max-w-3xl text-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="space-y-6">
             <h2 className="text-4xl md:text-5xl">GARANTA SEU ACESSO HOJE</h2>
