@@ -123,7 +123,7 @@ const Index = () => {
             <div className="mt-8 max-w-sm mx-auto">
               <div className="relative w-full rounded-xl overflow-hidden border border-accent/30 shadow-lg" style={{ aspectRatio: '9/16' }}>
                 <iframe
-                  src="https://www.youtube.com/embed/ZbpzMJ4F744"
+                  src="https://www.youtube.com/embed/ZbpzMJ4F744?modestbranding=1&showinfo=0&rel=0&controls=1&disablekb=0&fs=1"
                   title="Sobre o Método"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
