@@ -212,6 +212,41 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Depoimentos */}
+      <section className="py-16 md:py-24 bg-card">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-4xl md:text-5xl text-center mb-12">
+            DEPOIMENTOS DE <span className="text-primary">ALUNOS</span>
+          </motion.h2>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid md:grid-cols-3 gap-6">
+            {[
+              { id: "eIKu781eQh4", vertical: true },
+              { id: "tGSTuxo2mBI", vertical: true },
+              { id: "Fi8M43VWgrc", vertical: false },
+            ].map(({ id, vertical }) => (
+              <motion.div key={id} variants={fadeUp} className="flex justify-center">
+                <div
+                  className="w-full overflow-hidden rounded-xl border border-border shadow-lg"
+                  style={{ aspectRatio: vertical ? '9/16' : '16/9', maxWidth: vertical ? '280px' : '100%' }}
+                >
+                  <iframe
+                    src={`https://www.youtube.com/embed/${id}?modestbranding=1&showinfo=0&rel=0&controls=1`}
+                    title="Depoimento de aluno"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
+                    className="w-full h-full"
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+          <div className="text-center mt-12">
+            <CTAButton />
+          </div>
+        </div>
+      </section>
+
       {/* Diferencial */}
       <section className="py-16 md:py-24 bg-card">
         <div className="container mx-auto px-4 max-w-4xl">
