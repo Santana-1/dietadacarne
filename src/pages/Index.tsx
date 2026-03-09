@@ -273,34 +273,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Tudo que você recebe */}
-      <section className="py-16 md:py-24 bg-background">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-12 space-y-3">
-            <h2 className="text-4xl md:text-5xl">
-              TUDO QUE VOCÊ <span className="text-primary">RECEBE</span>
-            </h2>
-            <p className="text-muted-foreground text-lg">Entre agora e receba de forma instantânea:</p>
-          </motion.div>
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { icon: UtensilsCrossed, title: "Plano Alimentar Completo", desc: "Saiba exatamente o que comprar, como montar refeições e implementar no dia a dia." },
-              { icon: Sun, title: "Protocolo Solar", desc: "Melhore sono e regule hormônios com exposição solar no horário e tempo ideais." },
-              { icon: Zap, title: "Guia de Suplementação", desc: "Pare de gastar com suplemento inútil. Saiba exatamente o que tomar e quando." },
-              { icon: Clock, title: "Protocolo de Jejum", desc: "Domine a ferramenta mais poderosa de desintoxicação e organização metabólica." },
-              { icon: Dumbbell, title: "Treinos Exclusivos", desc: "Treinos para acelerar resultados, na academia ou em casa." },
-              { icon: BookOpen, title: "E-books e Manuais", desc: "Livros digitais completos para viver o verdadeiro estilo de transformação." },
-            ].map(({ icon: Icon, title, desc }) => (
-              <motion.div key={title} variants={fadeUp}
-                className="bg-card border border-border rounded-xl p-6 space-y-3 hover:border-primary/50 transition-colors">
-                <Icon className="w-8 h-8 text-primary" />
-                <h3 className="text-2xl">{title}</h3>
-                <p className="text-muted-foreground text-sm">{desc}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
 
       {/* Bônus */}
       <section className="py-16 md:py-24 bg-card">
