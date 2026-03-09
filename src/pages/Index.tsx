@@ -76,27 +76,27 @@ const Index = () => {
 
       {/* Hero */}
       <section className="relative min-h-[90vh] flex items-center">
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-[70%] overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/40 md:to-transparent z-10" />
+        <div className="absolute inset-0 md:left-auto md:right-0 md:w-[60%] overflow-hidden">
           <img
             src={heroPhoto}
             alt="Estilo de vida carnívoro"
-            className="w-full h-full object-contain object-right-bottom opacity-90"
+            className="w-full h-full object-cover object-top opacity-60 md:opacity-90"
           />
         </div>
         <div className="relative z-20 container mx-auto px-4 py-20 max-w-6xl">
           <motion.div initial="hidden" animate="visible" variants={fadeUp} className="max-w-2xl space-y-6">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tight">
               TRANSFORME SUA ROTINA ATRAVÉS DA{" "}
               <span className="text-gradient-primary">ALIMENTAÇÃO ANCESTRAL</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-lg">
+            <p className="text-base md:text-xl text-muted-foreground max-w-lg">
               Hábitos naturais que fortalecem corpo e mente. Método baseado em experiência prática, estudos independentes e aplicação real com mentorados.
             </p>
             <div className="pt-4">
               <CTAButton />
             </div>
-            <div className="flex flex-wrap gap-4 pt-4">
+            <div className="flex flex-wrap gap-3 pt-4">
               {[
                 { icon: Brain, text: "Experiência prática" },
                 { icon: Shield, text: "Garantia de 7 dias" },
