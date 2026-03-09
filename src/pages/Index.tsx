@@ -274,29 +274,9 @@ const Index = () => {
       </section>
 
 
-      {/* Bônus */}
-      <section className="py-16 md:py-24 bg-card">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-4xl md:text-5xl text-center mb-12">
-            BÔNUS <span className="text-accent">EXCLUSIVOS</span>
-          </motion.h2>
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid md:grid-cols-2 gap-6">
-            {[
-              { title: "Receitas Fit", from: "R$47", desc: "Receitas que eliminam compulsão sem sair da dieta." },
-              { title: "Lista de Compras", from: "R$27", desc: "Vá ao mercado sabendo exatamente o que colocar no carrinho." },
-            ].map((b) => (
-              <motion.div key={b.title} variants={fadeUp}
-                className="bg-background border border-accent/20 rounded-xl p-6 flex flex-col gap-2">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-2xl">{b.title}</h3>
-                  <span className="text-accent text-sm font-semibold">De <span className="line-through">{b.from}</span> por R$0</span>
-                </div>
-                <p className="text-muted-foreground">{b.desc}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+
+
+
 
       {/* Minha História */}
       <section className="py-16 md:py-24 bg-background">
