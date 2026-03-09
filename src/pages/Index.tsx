@@ -332,20 +332,16 @@ const Index = () => {
             <div className="bg-background border border-border rounded-2xl p-8 md:p-12 space-y-6">
               <div className="space-y-2 text-muted-foreground text-sm">
                 {[
-                  ["Acesso à plataforma completa", "R$ 697"],
-                  ["Treinos exclusivos", "R$ 147"],
-                  ["Receitas fit", "R$ 47"],
-                  ["Lista de compras", "R$ 27"],
-                  ["E-books e manuais", "R$ 27"],
-                ].map(([name, price]) => (
-                  <div key={name} className="flex justify-between border-b border-border/50 pb-2">
+                  ["Acesso à plataforma completa", ""],
+                  ["Método Estilo de Vida Carnívoro", ""],
+                ].map(([name]) => (
+                  <div key={name} className="flex items-center gap-2 border-b border-border/50 pb-2">
+                    <Check className="w-4 h-4 text-primary flex-shrink-0" />
                     <span>{name}</span>
-                    <span className="line-through">{price}</span>
                   </div>
                 ))}
               </div>
               <div>
-                <p className="text-muted-foreground line-through text-lg">Total: R$ 945</p>
                 <div className="mt-4">
                   <span className="font-display text-2xl text-muted-foreground">12x</span>
                   <span className="font-display text-7xl md:text-8xl text-primary ml-2">R$25</span>
