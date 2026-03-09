@@ -76,12 +76,12 @@ const Index = () => {
 
       {/* Hero */}
       <section className="relative min-h-[90vh] flex items-center">
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/40 md:to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent z-10" />
         <div className="absolute inset-0 md:left-auto md:right-0 md:w-[60%] overflow-hidden">
           <img
             src={heroPhoto}
             alt="Estilo de vida carnívoro"
-            className="w-full h-full object-cover object-top opacity-60 md:opacity-90"
+            className="w-full h-full object-cover object-top opacity-80 md:opacity-100"
           />
         </div>
         <div className="relative z-20 container mx-auto px-4 py-20 max-w-6xl">
