@@ -74,7 +74,7 @@ const Index = () => {
           <img
             src={heroPhoto}
             alt="Estilo de vida carnívoro"
-            className="w-full h-full object-cover object-top md:object-bottom opacity-80 md:opacity-100"
+            className="w-full h-full object-cover object-top md:object-[center_20%] opacity-80 md:opacity-100"
           />
         </div>
         <div className="relative z-20 container mx-auto px-4 py-20 max-w-6xl">
