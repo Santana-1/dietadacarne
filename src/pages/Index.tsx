@@ -336,10 +336,10 @@ const Index = () => {
         <div className="container mx-auto px-4 max-w-4xl text-center space-y-4">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <h2 className="text-4xl md:text-5xl text-accent">
-              RESULTADOS EM 7 DIAS OU SEU DINHEIRO DE VOLTA!
+              COMECE A TER RESULTADOS A PARTIR DO SÉTIMO DIA OU SEU DINHEIRO DE VOLTA!
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto mt-4">
-              Se você começar, aplicar exatamente o que ensino e não ver resultados em até 7 dias,
+              Se você começar, aplicar exatamente o que ensino e não começar a ver resultados a partir do sétimo dia,
               basta enviar um e-mail e eu devolvo 100% do seu dinheiro. Simples assim.
             </p>
           </motion.div>
