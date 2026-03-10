@@ -66,13 +66,6 @@ const PillarCard = ({ icon: Icon, number, title, items }: { icon: React.ElementT
 const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      {/* Top Bar */}
-      <div className="bg-primary/10 border-b border-primary/20 py-3 text-center">
-        <p className="text-primary font-semibold text-sm md:text-base flex items-center justify-center gap-2">
-          <Users className="w-5 h-5" />
-          + 4.000 pessoas já transformaram suas vidas
-        </p>
-      </div>
 
       {/* Hero */}
       <section className="relative min-h-[90vh] flex items-center">
@@ -343,10 +336,10 @@ const Index = () => {
         <div className="container mx-auto px-4 max-w-4xl text-center space-y-4">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <h2 className="text-4xl md:text-5xl text-accent">
-              RESULTADOS EM 7 DIAS OU SEU DINHEIRO DE VOLTA!
+              COMECE A TER RESULTADOS A PARTIR DO SÉTIMO DIA OU SEU DINHEIRO DE VOLTA!
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto mt-4">
-              Se você começar, aplicar exatamente o que ensino e não ver resultados em até 7 dias,
+              Se você começar, aplicar exatamente o que ensino e não começar a ver resultados a partir do sétimo dia,
               basta enviar um e-mail e eu devolvo 100% do seu dinheiro. Simples assim.
             </p>
           </motion.div>
