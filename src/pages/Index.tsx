@@ -66,13 +66,6 @@ const PillarCard = ({ icon: Icon, number, title, items }: { icon: React.ElementT
 const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      {/* Top Bar */}
-      <div className="bg-primary/10 border-b border-primary/20 py-3 text-center">
-        <p className="text-primary font-semibold text-sm md:text-base flex items-center justify-center gap-2">
-          <Users className="w-5 h-5" />
-          + 4.000 pessoas já transformaram suas vidas
-        </p>
-      </div>
 
       {/* Hero */}
       <section className="relative min-h-[90vh] flex items-center">
