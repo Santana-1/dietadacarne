@@ -115,14 +115,14 @@ const Index = () => {
             </p>
             <div className="mt-8 max-w-sm mx-auto">
               <div className="relative w-full rounded-xl overflow-hidden border border-accent/30 shadow-lg" style={{ aspectRatio: '9/16' }}>
-                <iframe
-                  src="https://www.youtube.com/embed/ZbpzMJ4F744?modestbranding=1&showinfo=0&rel=0&controls=1&disablekb=0&fs=1"
-                  title="Sobre o Método"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  loading="lazy"
-                  className="absolute inset-0 w-full h-full"
-                />
+                <video
+                  src="/IMG_7719.MP4"
+                  controls
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover bg-black"
+                >
+                  Seu navegador não suporta a exibição de vídeos.
+                </video>
               </div>
             </div>
           </motion.div>
